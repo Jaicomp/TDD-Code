@@ -1,14 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
 <body>
-<script>
-function output(text, color) {
-var p = document.createElement("p");
-p.innerHTML = text;
-p.style.color = color;
-document.body.appendChild(p);
-}
-// console.log can now be replaced with
-output(5 + " tests OK", "#0c0");
-// and, for failures:
-output("Test failed: " + e.message, "#c00");
-</script>
+	<script src = 'tests.js'></script>
+	<script>
+		assert("1 = 1", 1 == 2);
+		output(assert.count + " tests passed", "#0c0");
+		//output("Test failed: " + e.message, "#c00");
+	</script>
 </body>
+</html>
