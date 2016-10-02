@@ -1,0 +1,14 @@
+<body>
+<script>
+function output(text, color) {
+var p = document.createElement("p");
+p.innerHTML = text;
+p.style.color = color;
+document.body.appendChild(p);
+}
+// console.log can now be replaced with
+output(5 + " tests OK", "#0c0");
+// and, for failures:
+output("Test failed: " + e.message, "#c00");
+</script>
+</body>
