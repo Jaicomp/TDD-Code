@@ -24,6 +24,10 @@ function testCase(name, tests) {
 	assert.count = 0;
 	var successful = 0;
 	var testCount = 0;
+
+	var hasSetup = typeof tests.setUp === 'function';
+	var hasTeardown = typeof tests.tearDown === 'function';
+
 	var successfulColor = "#0c0"	
 	var failureColor = "#c00"
 
@@ -35,8 +39,18 @@ function testCase(name, tests) {
 		testCount++;
 
 		try {
+	
+			if (hasSetup) {
+				tests.setUp();
+			}
+
 			tests[test]();
 			output(test, successfulColor);
+
+			if (hasTeardown) {
+				tests.tearDown();
+			}
+	
 			successful++;
 		} catch (e) {
 			output(test + " failed: " + e.message, failureColor);
